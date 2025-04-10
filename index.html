@@ -1,0 +1,644 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Доска объявлений «Металлы и сплавы» | ООО НПК Метотех</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Montserrat:wght@600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Шапка -->
+        <header>
+            <div class="logo">
+                <div class="logo-icon">
+                    <i class="fas fa-cubes"></i>
+                </div>
+                <div class="logo-text">
+                    Металлы и сплавы
+                    <span>ООО НПК Метотех</span>
+                </div>
+            </div>
+            <div class="user-menu">
+                <a href="#notifications" id="notifications-btn"><i class="fas fa-bell"></i><span>Уведомления</span></a>
+                <a href="#messages" id="messages-btn"><i class="fas fa-envelope"></i><span>Сообщения</span></a>
+                <a href="#account" id="account-btn" class="btn"><i class="fas fa-user"></i><span id="user-status">Войти</span></a>
+            </div>
+        </header>
+        
+        <!-- Навигация -->
+        <nav>
+            <a href="#home" class="nav-link active" data-page="home"><i class="fas fa-home"></i><span>Главная</span></a>
+            <a href="#buy" class="nav-link" data-page="buy"><i class="fas fa-shopping-cart"></i><span>Купить</span></a>
+            <a href="#sell" class="nav-link" data-page="sell"><i class="fas fa-tag"></i><span>Продать</span></a>
+            <a href="#services" class="nav-link" data-page="services"><i class="fas fa-cogs"></i><span>Услуги</span></a>
+            <a href="#news" class="nav-link" data-page="news"><i class="fas fa-newspaper"></i><span>Новости</span></a>
+            <a href="#contacts" class="nav-link" data-page="contacts"><i class="fas fa-phone-alt"></i><span>Контакты</span></a>
+            <a href="#admin" class="nav-link admin-link" data-page="admin" style="display: none;"><i class="fas fa-lock"></i><span>Админка</span></a>
+        </nav>
+        
+        <!-- Основное содержимое -->
+        <div class="content">
+            <!-- Главная страница -->
+            <div id="home" class="page fade-in">
+                <h1 class="page-title"><i class="fas fa-home"></i> Добро пожаловать на доску объявлений</h1>
+                
+                <div class="quick-actions fade-in delay-1">
+                    <a href="#buy" class="action-btn buy pulse" data-page="buy">
+                        <i class="fas fa-shopping-cart"></i>
+                        <h3>Купить металл</h3>
+                        <p>Более 5000 предложений от проверенных поставщиков</p>
+                    </a>
+                    <a href="#sell" class="action-btn sell pulse" data-page="sell">
+                        <i class="fas fa-tag"></i>
+                        <h3>Продать металл</h3>
+                        <p>Разместите свое объявление и найдите покупателей</p>
+                    </a>
+                    <a href="#services" class="action-btn services pulse" data-page="services">
+                        <i class="fas fa-cogs"></i>
+                        <h3>Металлообработка</h3>
+                        <p>Услуги по обработке и изготовлению металлоизделий</p>
+                    </a>
+                </div>
+                
+                <h2 class="page-title"><i class="fas fa-list"></i> Последние объявления</h2>
+                
+                <div class="filters fade-in delay-2">
+                    <div class="filter-row">
+                        <div class="filter-group">
+                            <label class="filter-label">Тип металла</label>
+                            <select class="filter-select" id="metal-type">
+                                <option value="all">Все металлы</option>
+                                <option value="black">Черные металлы</option>
+                                <option value="color">Цветные металлы</option>
+                                <option value="rare">Редкие металлы</option>
+                                <option value="precious">Драгоценные металлы</option>
+                            </select>
+                        </div>
+                        <div class="filter-group">
+                            <label class="filter-label">Категория</label>
+                            <select class="filter-select" id="metal-category">
+                                <option value="all">Все категории</option>
+                                <option value="sheet">Листовой прокат</option>
+                                <option value="bar">Сортовой прокат</option>
+                                <option value="pipe">Трубы</option>
+                                <option value="wire">Проволока</option>
+                                <option value="powder">Порошки</option>
+                            </select>
+                        </div>
+                        <div class="filter-group">
+                            <label class="filter-label">Регион</label>
+                            <select class="filter-select" id="metal-region">
+                                <option value="all">Все регионы</option>
+                                <option value="moscow">Москва</option>
+                                <option value="spb">Санкт-Петербург</option>
+                                <option value="central">Центральный ФО</option>
+                                <option value="northwest">Северо-Западный ФО</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="filter-buttons">
+                        <button class="filter-btn reset" id="reset-filters"><i class="fas fa-undo"></i> Сбросить</button>
+                        <button class="filter-btn" id="apply-filters"><i class="fas fa-search"></i> Найти</button>
+                    </div>
+                </div>
+                
+                <div class="ads-list" id="ads-container">
+                    <!-- Объявления будут загружаться динамически -->
+                </div>
+            </div>
+            
+            <!-- Страница покупки -->
+            <div id="buy" class="page" style="display: none;">
+                <h1 class="page-title"><i class="fas fa-shopping-cart"></i> Купить металл</h1>
+                <div class="filters">
+                    <!-- Фильтры аналогичные главной странице -->
+                </div>
+                <div class="ads-list" id="buy-ads-container">
+                    <!-- Объявления для покупки -->
+                </div>
+            </div>
+            
+            <!-- Страница продажи -->
+            <div id="sell" class="page" style="display: none;">
+                <h1 class="page-title"><i class="fas fa-tag"></i> Продать металл</h1>
+                <div class="sell-content">
+                    <div class="sell-info">
+                        <h2>Как разместить объявление?</h2>
+                        <ol>
+                            <li>Зарегистрируйтесь или войдите в систему</li>
+                            <li>Нажмите кнопку "Добавить объявление"</li>
+                            <li>Заполните все необходимые поля</li>
+                            <li>Опубликуйте объявление</li>
+                        </ol>
+                        <button class="btn" id="add-ad-btn">Добавить объявление</button>
+                    </div>
+                    <div class="my-ads" id="my-ads-container" style="display: none;">
+                        <h2>Мои объявления</h2>
+                        <div class="ads-list" id="user-ads-container">
+                            <!-- Объявления пользователя -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Страница услуг -->
+            <div id="services" class="page" style="display: none;">
+                <h1 class="page-title"><i class="fas fa-cogs"></i> Услуги по металлообработке</h1>
+                <div class="services-list">
+                    <!-- Список услуг -->
+                </div>
+            </div>
+            
+            <!-- Страница новостей -->
+            <div id="news" class="page" style="display: none;">
+                <h1 class="page-title"><i class="fas fa-newspaper"></i> Новости</h1>
+                <div class="news-list" id="news-container">
+                    <!-- Новости будут загружаться динамически -->
+                </div>
+            </div>
+            
+            <!-- Страница контактов -->
+            <div id="contacts" class="page" style="display: none;">
+                <h1 class="page-title"><i class="fas fa-phone-alt"></i> Контакты</h1>
+                <div class="contacts-content">
+                    <div class="contact-info">
+                        <h2>ООО НПК Метотех</h2>
+                        <p><i class="fas fa-map-marker-alt"></i> Адрес: г. Москва, ул. Металлургов, д. 15</p>
+                        <p><i class="fas fa-phone"></i> Телефон: +7 (495) 123-45-67</p>
+                        <p><i class="fas fa-envelope"></i> Email: info@metotech.ru</p>
+                        <p><i class="fas fa-clock"></i> Режим работы: Пн-Пт с 9:00 до 18:00</p>
+                    </div>
+                    <div class="contact-form">
+                        <h2>Напишите нам</h2>
+                        <form id="contact-form">
+                            <div class="form-group">
+                                <label>Ваше имя</label>
+                                <input type="text" id="contact-name" required>
+                            </div>
+                            <div class="form-group">
+                                <label>Ваш email</label>
+                                <input type="email" id="contact-email" required>
+                            </div>
+                            <div class="form-group">
+                                <label>Сообщение</label>
+                                <textarea id="contact-message" rows="5" required></textarea>
+                            </div>
+                            <button type="submit" class="btn">Отправить</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Личный кабинет -->
+            <div id="account" class="page" style="display: none;">
+                <div class="account-section fade-in">
+                    <div class="account-sidebar">
+                        <div class="account-user">
+                            <div class="account-avatar" id="user-avatar">Г</div>
+                            <div>
+                                <div class="account-name" id="user-fullname">Гость</div>
+                                <div class="account-status" id="user-company"></div>
+                            </div>
+                        </div>
+                        <ul class="account-menu">
+                            <li><a href="#profile" class="active" data-tab="profile"><i class="fas fa-user"></i> Профиль</a></li>
+                            <li><a href="#my-ads" data-tab="my-ads"><i class="fas fa-list"></i> Мои объявления</a></li>
+                            <li><a href="#favorites" data-tab="favorites"><i class="fas fa-heart"></i> Избранное</a></li>
+                            <li><a href="#messages" data-tab="messages"><i class="fas fa-envelope"></i> Сообщения</a></li>
+                            <li><a href="#notifications" data-tab="notifications"><i class="fas fa-bell"></i> Уведомления</a></li>
+                            <li><a href="#settings" data-tab="settings"><i class="fas fa-cog"></i> Настройки</a></li>
+                            <li><a href="#logout" id="logout-btn"><i class="fas fa-sign-out-alt"></i> Выход</a></li>
+                        </ul>
+                    </div>
+                    <div class="account-content">
+                        <!-- Профиль -->
+                        <div id="profile-tab" class="account-tab">
+                            <h1 class="account-title">Мой профиль</h1>
+                            
+                            <div class="stats-grid">
+                                <div class="stat-card active">
+                                    <div class="stat-value" id="active-ads-count">0</div>
+                                    <div class="stat-label">Активных объявлений</div>
+                                </div>
+                                <div class="stat-card archive">
+                                    <div class="stat-value" id="completed-deals-count">0</div>
+                                    <div class="stat-label">Завершенных сделок</div>
+                                </div>
+                                <div class="stat-card favorites">
+                                    <div class="stat-value" id="favorites-count">0</div>
+                                    <div class="stat-label">В избранном</div>
+                                </div>
+                            </div>
+                            
+                            <h2 class="account-title">Личная информация</h2>
+                            
+                            <form id="profile-form">
+                                <div class="form-group">
+                                    <label class="form-label">Имя</label>
+                                    <input type="text" class="form-control" id="first-name" required>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label class="form-label">Фамилия</label>
+                                    <input type="text" class="form-control" id="last-name" required>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label class="form-label">Email</label>
+                                    <input type="email" class="form-control" id="email" required>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label class="form-label">Телефон</label>
+                                    <input type="tel" class="form-control" id="phone" required>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label class="form-label">Компания</label>
+                                    <input type="text" class="form-control" id="company">
+                                </div>
+                                
+                                <button type="submit" class="submit-btn pulse"><i class="fas fa-save"></i> Сохранить изменения</button>
+                            </form>
+                        </div>
+                        
+                        <!-- Мои объявления -->
+                        <div id="my-ads-tab" class="account-tab" style="display: none;">
+                            <h1 class="account-title">Мои объявления</h1>
+                            <div class="ads-list" id="account-ads-container">
+                                <!-- Объявления пользователя -->
+                            </div>
+                        </div>
+                        
+                        <!-- Избранное -->
+                        <div id="favorites-tab" class="account-tab" style="display: none;">
+                            <h1 class="account-title">Избранное</h1>
+                            <div class="ads-list" id="favorites-container">
+                                <!-- Избранные объявления -->
+                            </div>
+                        </div>
+                        
+                        <!-- Сообщения -->
+                        <div id="messages-tab" class="account-tab" style="display: none;">
+                            <h1 class="account-title">Сообщения</h1>
+                            <div class="chat-container">
+                                <div class="chat-list">
+                                    <div class="chat-search">
+                                        <input type="text" placeholder="Поиск...">
+                                    </div>
+                                    <div class="chat-items" id="chat-list">
+                                        <!-- Список чатов -->
+                                    </div>
+                                </div>
+                                <div class="chat-window" id="chat-window">
+                                    <div class="chat-header">
+                                        <div class="chat-partner" id="chat-partner-name"></div>
+                                    </div>
+                                    <div class="chat-messages" id="chat-messages">
+                                        <!-- Сообщения -->
+                                    </div>
+                                    <div class="chat-input">
+                                        <textarea placeholder="Введите сообщение..." id="message-input"></textarea>
+                                        <button id="send-message-btn"><i class="fas fa-paper-plane"></i></button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Уведомления -->
+                        <div id="notifications-tab" class="account-tab" style="display: none;">
+                            <h1 class="account-title">Уведомления</h1>
+                            <div class="notifications-list" id="notifications-list">
+                                <!-- Уведомления -->
+                            </div>
+                        </div>
+                        
+                        <!-- Настройки -->
+                        <div id="settings-tab" class="account-tab" style="display: none;">
+                            <h1 class="account-title">Настройки</h1>
+                            <form id="settings-form">
+                                <div class="form-group">
+                                    <label class="form-label">Уведомления по email</label>
+                                    <select class="form-control" id="email-notifications">
+                                        <option value="all">Все уведомления</option>
+                                        <option value="important">Только важные</option>
+                                        <option value="none">Не получать</option>
+                                    </select>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label class="form-label">Смена пароля</label>
+                                    <input type="password" class="form-control" id="current-password" placeholder="Текущий пароль">
+                                    <input type="password" class="form-control" id="new-password" placeholder="Новый пароль">
+                                    <input type="password" class="form-control" id="confirm-password" placeholder="Подтвердите пароль">
+                                </div>
+                                
+                                <button type="submit" class="submit-btn pulse"><i class="fas fa-save"></i> Сохранить настройки</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Админ-панель -->
+            <div id="admin" class="page" style="display: none;">
+                <h1 class="page-title"><i class="fas fa-lock"></i> Административная панель</h1>
+                <div class="admin-section">
+                    <div class="admin-sidebar">
+                        <ul class="admin-menu">
+                            <li><a href="#admin-dashboard" class="active" data-admin-tab="dashboard"><i class="fas fa-tachometer-alt"></i> Панель управления</a></li>
+                            <li><a href="#admin-ads" data-admin-tab="ads"><i class="fas fa-list"></i> Модерация объявлений</a></li>
+                            <li><a href="#admin-users" data-admin-tab="users"><i class="fas fa-users"></i> Пользователи</a></li>
+                            <li><a href="#admin-news" data-admin-tab="news"><i class="fas fa-newspaper"></i> Управление новостями</a></li>
+                            <li><a href="#admin-settings" data-admin-tab="settings"><i class="fas fa-cog"></i> Настройки сайта</a></li>
+                        </ul>
+                    </div>
+                    <div class="admin-content">
+                        <!-- Панель управления -->
+                        <div id="admin-dashboard-tab" class="admin-tab">
+                            <h2 class="account-title">Статистика сайта</h2>
+                            <div class="stats-grid">
+                                <div class="stat-card">
+                                    <div class="stat-value" id="total-users">0</div>
+                                    <div class="stat-label">Пользователей</div>
+                                </div>
+                                <div class="stat-card">
+                                    <div class="stat-value" id="total-ads">0</div>
+                                    <div class="stat-label">Объявлений</div>
+                                </div>
+                                <div class="stat-card">
+                                    <div class="stat-value" id="active-ads">0</div>
+                                    <div class="stat-label">Активных объявлений</div>
+                                </div>
+                                <div class="stat-card">
+                                    <div class="stat-value" id="pending-ads">0</div>
+                                    <div class="stat-label">На модерации</div>
+                                </div>
+                            </div>
+                            
+                            <h2 class="account-title">Последние действия</h2>
+                            <div class="admin-activity" id="admin-activity">
+                                <!-- Журнал действий -->
+                            </div>
+                        </div>
+                        
+                        <!-- Модерация объявлений -->
+                        <div id="admin-ads-tab" class="admin-tab" style="display: none;">
+                            <h2 class="account-title">Объявления на модерации</h2>
+                            <div class="ads-list" id="moderation-ads-container">
+                                <!-- Объявления для модерации -->
+                            </div>
+                        </div>
+                        
+                        <!-- Управление пользователями -->
+                        <div id="admin-users-tab" class="admin-tab" style="display: none;">
+                            <h2 class="account-title">Пользователи</h2>
+                            <div class="admin-users-list" id="admin-users-list">
+                                <!-- Список пользователей -->
+                            </div>
+                        </div>
+                        
+                        <!-- Управление новостями -->
+                        <div id="admin-news-tab" class="admin-tab" style="display: none;">
+                            <h2 class="account-title">Управление новостями</h2>
+                            <button class="btn" id="add-news-btn">Добавить новость</button>
+                            <div class="news-list" id="admin-news-list">
+                                <!-- Список новостей -->
+                            </div>
+                        </div>
+                        
+                        <!-- Настройки сайта -->
+                        <div id="admin-settings-tab" class="admin-tab" style="display: none;">
+                            <h2 class="account-title">Настройки сайта</h2>
+                            <form id="admin-settings-form">
+                                <div class="form-group">
+                                    <label class="form-label">Название сайта</label>
+                                    <input type="text" class="form-control" id="site-name" required>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label class="form-label">Email администратора</label>
+                                    <input type="email" class="form-control" id="admin-email" required>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label class="form-label">Модерация объявлений</label>
+                                    <select class="form-control" id="moderation-type">
+                                        <option value="premoderation">Премодерация</option>
+                                        <option value="postmoderation">Постмодерация</option>
+                                    </select>
+                                </div>
+                                
+                                <button type="submit" class="submit-btn pulse"><i class="fas fa-save"></i> Сохранить настройки</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Модальное окно входа -->
+    <div id="login-modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 class="modal-title">Вход в личный кабинет</h3>
+                <button class="modal-close">&times;</button>
+            </div>
+            <div class="modal-body">
+                <form id="login-form">
+                    <div class="form-group">
+                        <label class="form-label">Email</label>
+                        <input type="email" class="form-control" id="login-email" placeholder="Введите ваш email" required>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Пароль</label>
+                        <input type="password" class="form-control" id="login-password" placeholder="Введите пароль" required>
+                    </div>
+                    <div class="form-group">
+                        <button type="submit" class="submit-btn" style="width: 100%;"><i class="fas fa-sign-in-alt"></i> Войти</button>
+                    </div>
+                    <div style="text-align: center; margin-top: 20px;">
+                        <a href="#register" id="register-link" style="color: var(--secondary);">Регистрация</a> | 
+                        <a href="#forgot" id="forgot-password-link" style="color: var(--secondary);">Забыли пароль?</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Модальное окно регистрации -->
+    <div id="register-modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 class="modal-title">Регистрация</h3>
+                <button class="modal-close">&times;</button>
+            </div>
+            <div class="modal-body">
+                <form id="register-form">
+                    <div class="form-group">
+                        <label class="form-label">Имя</label>
+                        <input type="text" class="form-control" id="register-first-name" required>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Фамилия</label>
+                        <input type="text" class="form-control" id="register-last-name" required>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Email</label>
+                        <input type="email" class="form-control" id="register-email" required>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Телефон</label>
+                        <input type="tel" class="form-control" id="register-phone" required>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Пароль</label>
+                        <input type="password" class="form-control" id="register-password" required>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Подтвердите пароль</label>
+                        <input type="password" class="form-control" id="register-confirm-password" required>
+                    </div>
+                    <div class="form-group">
+                        <button type="submit" class="submit-btn" style="width: 100%;"><i class="fas fa-user-plus"></i> Зарегистрироваться</button>
+                    </div>
+                    <div style="text-align: center; margin-top: 20px;">
+                        Уже есть аккаунт? <a href="#login" id="login-link" style="color: var(--secondary);">Войти</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Модальное окно добавления объявления -->
+    <div id="add-ad-modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 class="modal-title">Добавить объявление</h3>
+                <button class="modal-close">&times;</button>
+            </div>
+            <div class="modal-body">
+                <form id="ad-form">
+                    <div class="form-group">
+                        <label class="form-label">Заголовок объявления</label>
+                        <input type="text" class="form-control" id="ad-title" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="form-label">Категория</label>
+                        <select class="form-control" id="ad-category" required>
+                            <option value="">Выберите категорию</option>
+                            <option value="black">Черные металлы</option>
+                            <option value="color">Цветные металлы</option>
+                            <option value="rare">Редкие металлы</option>
+                            <option value="precious">Драгоценные металлы</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="form-label">Тип продукции</label>
+                        <select class="form-control" id="ad-type" required>
+                            <option value="">Выберите тип</option>
+                            <option value="sheet">Листовой прокат</option>
+                            <option value="bar">Сортовой прокат</option>
+                            <option value="pipe">Трубы</option>
+                            <option value="wire">Проволока</option>
+                            <option value="powder">Порошки</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="form-label">Описание</label>
+                        <textarea class="form-control" id="ad-description" rows="5" required></textarea>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="form-label">Цена (₽)</label>
+                        <input type="number" class="form-control" id="ad-price" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="form-label">Регион</label>
+                        <select class="form-control" id="ad-region" required>
+                            <option value="">Выберите регион</option>
+                            <option value="moscow">Москва</option>
+                            <option value="spb">Санкт-Петербург</option>
+                            <option value="central">Центральный ФО</option>
+                            <option value="northwest">Северо-Западный ФО</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="form-label">Фотографии (максимум 5)</label>
+                        <input type="file" id="ad-photos" multiple accept="image/*">
+                        <div class="photo-preview" id="photo-preview"></div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <button type="submit" class="submit-btn" style="width: 100%;"><i class="fas fa-save"></i> Опубликовать</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Модальное окно добавления новости -->
+    <div id="add-news-modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 class="modal-title">Добавить новость</h3>
+                <button class="modal-close">&times;</button>
+            </div>
+            <div class="modal-body">
+                <form id="news-form">
+                    <div class="form-group">
+                        <label class="form-label">Заголовок</label>
+                        <input type="text" class="form-control" id="news-title" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="form-label">Краткое описание</label>
+                        <input type="text" class="form-control" id="news-short" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="form-label">Текст новости</label>
+                        <textarea class="form-control" id="news-text" rows="8" required></textarea>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="form-label">Изображение</label>
+                        <input type="file" id="news-image" accept="image/*">
+                        <div class="photo-preview" id="news-image-preview"></div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <button type="submit" class="submit-btn" style="width: 100%;"><i class="fas fa-save"></i> Опубликовать</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/auth.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/ads.js"></script>
+    <script src="js/chat.js"></script>
+</body>
+</html>
+<header>
+    <div class="logo">
+        <!-- существующий код логотипа -->
+    </div>
+    <div class="search-box">
+        <input type="text" id="global-search" placeholder="Поиск по объявлениям...">
+        <button id="search-btn"><i class="fas fa-search"></i></button>
+    </div>
+    <div class="user-menu">
+        <!-- существующий код меню пользователя -->
+    </div>
+</header>

@@ -1,0 +1,69 @@
+<!-- В списке меню -->
+<li><a href="#report" data-tab="report"><i class="fas fa-bug"></i> Сообщить об ошибке</a></li>
+
+<!-- Новый таб -->
+<div id="report-tab" class="account-tab" style="display: none;">
+    <h1 class="account-title"><i class="fas fa-bug"></i> Сообщить об ошибке</h1>
+    
+    <div class="report-form">
+        <div class="form-group">
+            <label class="form-label">Тип проблемы</label>
+            <select class="form-control" id="report-type">
+                <option value="bug">Ошибка на сайте</option>
+                <option value="feature">Предложение по улучшению</option>
+                <option value="content">Ошибка в содержании</option>
+                <option value="other">Другое</option>
+            </select>
+        </div>
+        
+        <div class="form-group">
+            <label class="form-label">Страница, где возникла проблема</label>
+            <input type="text" class="form-control" id="report-page" placeholder="URL страницы или название">
+        </div>
+        
+        <div class="form-group">
+            <label class="form-label">Подробное описание</label>
+            <textarea class="form-control" id="report-description" rows="6" placeholder="Опишите проблему как можно подробнее..."></textarea>
+        </div>
+        
+        <div class="form-group">
+            <label class="form-label">Скриншот (если есть)</label>
+            <input type="file" id="report-screenshot" accept="image/*">
+            <div class="photo-preview" id="screenshot-preview"></div>
+        </div>
+        
+        <button class="submit-btn pulse" id="submit-report"><i class="fas fa-paper-plane"></i> Отправить отчет</button>
+    </div>
+</div>
+
+<div class="chat-actions">
+    <button class="btn small danger" id="report-spam-btn"><i class="fas fa-flag"></i> Пожаловаться на спам</button>
+</div>
+<div id="report-spam-modal" class="modal">
+    <div class="modal-content">
+        <div class="modal-header">
+            <h3 class="modal-title">Пожаловаться на спам</h3>
+            <button class="modal-close">&times;</button>
+        </div>
+        <div class="modal-body">
+            <div class="form-group">
+                <label class="form-label">Выберите причину жалобы</label>
+                <select class="form-control" id="spam-reason">
+                    <option value="spam">Спам или реклама</option>
+                    <option value="fraud">Мошенничество</option>
+                    <option value="abuse">Оскорбительное поведение</option>
+                    <option value="other">Другое</option>
+                </select>
+            </div>
+            
+            <div class="form-group">
+                <label class="form-label">Дополнительные комментарии</label>
+                <textarea class="form-control" id="spam-comments" rows="4" placeholder="Опишите проблему..."></textarea>
+            </div>
+            
+            <div class="form-group">
+                <button class="btn" id="confirm-spam-report"><i class="fas fa-flag"></i> Отправить жалобу</button>
+            </div>
+        </div>
+    </div>
+</div>

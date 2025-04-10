@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Уведомления | Доска объявлений «Металлы и сплавы»</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Montserrat:wght@600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <!-- шапка как в index.html -->
+        </header>
+        
+        <nav>
+            <!-- навигация как в index.html -->
+        </nav>
+        
+        <div class="content">
+            <div id="notifications-page" class="page active">
+                <h1 class="page-title"><i class="fas fa-bell"></i> Уведомления</h1>
+                
+                <div class="notifications-header">
+                    <div class="notifications-tabs">
+                        <button class="notifications-tab active" data-type="all">Все</button>
+                        <button class="notifications-tab" data-type="unread">Непрочитанные</button>
+                        <button class="notifications-tab" data-type="system">Системные</button>
+                        <button class="notifications-tab" data-type="messages">Сообщения</button>
+                    </div>
+                    <button class="btn" id="mark-all-read">Отметить все как прочитанные</button>
+                </div>
+                
+                <div class="notifications-list" id="notifications-list">
+                    <!-- уведомления будут здесь -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/main.js"></script>
+    <script src="js/notifications.js"></script>
+</body>
+</html>

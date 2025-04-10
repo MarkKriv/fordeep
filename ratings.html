@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Рейтинги пользователей | Доска объявлений «Металлы и сплавы»</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Montserrat:wght@600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <!-- шапка как в index.html -->
+        </header>
+        
+        <nav>
+            <!-- навигация как в index.html -->
+        </nav>
+        
+        <div class="content">
+            <div id="ratings" class="page active">
+                <h1 class="page-title"><i class="fas fa-star"></i> Рейтинги пользователей</h1>
+                
+                <div class="ratings-filters">
+                    <div class="filter-group">
+                        <label class="filter-label">Категория</label>
+                        <select class="filter-select" id="rating-category">
+                            <option value="all">Все пользователи</option>
+                            <option value="buyers">Покупатели</option>
+                            <option value="sellers">Продавцы</option>
+                            <option value="companies">Компании</option>
+                        </select>
+                    </div>
+                    <div class="filter-group">
+                        <label class="filter-label">Регион</label>
+                        <select class="filter-select" id="rating-region">
+                            <option value="all">Все регионы</option>
+                            <option value="moscow">Москва</option>
+                            <option value="spb">Санкт-Петербург</option>
+                            <option value="central">Центральный ФО</option>
+                            <option value="northwest">Северо-Западный ФО</option>
+                        </select>
+                    </div>
+                    <div class="filter-group">
+                        <label class="filter-label">Сортировка</label>
+                        <select class="filter-select" id="rating-sort">
+                            <option value="rating-desc">По рейтингу (убыв.)</option>
+                            <option value="rating-asc">По рейтингу (возр.)</option>
+                            <option value="reviews-desc">По количеству отзывов</option>
+                        </select>
+                    </div>
+                </div>
+                
+                <div class="ratings-list" id="ratings-list">
+                    <!-- список пользователей с рейтингами -->
+                </div>
+                
+                <div class="pagination">
+                    <button class="pagination-btn" disabled><i class="fas fa-chevron-left"></i></button>
+                    <button class="pagination-btn active">1</button>
+                    <button class="pagination-btn">2</button>
+                    <button class="pagination-btn">3</button>
+                    <button class="pagination-btn"><i class="fas fa-chevron-right"></i></button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/main.js"></script>
+    <script src="js/ratings.js"></script>
+</body>
+</html>
